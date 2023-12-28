@@ -1,0 +1,225 @@
+# depslib dependency file v1.0
+1703760798 source:f:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\main.cpp
+	<SFML/Window.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\window.hpp
+	<SFML/System.hpp>
+	<SFML/Window/Clipboard.hpp>
+	<SFML/Window/Context.hpp>
+	<SFML/Window/ContextSettings.hpp>
+	<SFML/Window/Cursor.hpp>
+	<SFML/Window/Event.hpp>
+	<SFML/Window/Joystick.hpp>
+	<SFML/Window/Keyboard.hpp>
+	<SFML/Window/Mouse.hpp>
+	<SFML/Window/Sensor.hpp>
+	<SFML/Window/Touch.hpp>
+	<SFML/Window/VideoMode.hpp>
+	<SFML/Window/Window.hpp>
+	<SFML/Window/WindowHandle.hpp>
+	<SFML/Window/WindowStyle.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Clock.hpp>
+	<SFML/System/Err.hpp>
+	<SFML/System/FileInputStream.hpp>
+	<SFML/System/InputStream.hpp>
+	<SFML/System/Lock.hpp>
+	<SFML/System/MemoryInputStream.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Sleep.hpp>
+	<SFML/System/String.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/ThreadLocal.hpp>
+	<SFML/System/ThreadLocalPtr.hpp>
+	<SFML/System/Time.hpp>
+	<SFML/System/Utf.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/Vector3.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\config.hpp
+	"TargetConditionals.h"
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system\clock.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/Time.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system\export.hpp
+	<SFML/Config.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system\time.hpp
+	<SFML/System/Export.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system\err.hpp
+	<SFML/System/Export.hpp>
+	<ostream>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system\fileinputstream.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Export.hpp>
+	<SFML/System/InputStream.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdio>
+	<string>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system\inputstream.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Export.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system\noncopyable.hpp
+	<SFML/System/Export.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system\lock.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system\memoryinputstream.hpp
+	<SFML/Config.hpp>
+	<SFML/System/InputStream.hpp>
+	<SFML/System/Export.hpp>
+	<cstdlib>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system\mutex.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system\sleep.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/Time.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system\string.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/Utf.hpp>
+	<iterator>
+	<locale>
+	<string>
+	<SFML/System/String.inl>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system\utf.hpp
+	<SFML/Config.hpp>
+	<algorithm>
+	<locale>
+	<string>
+	<cstdlib>
+	<SFML/System/Utf.inl>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system\utf.inl
+
+1675377929 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system\string.inl
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system\thread.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdlib>
+	<SFML/System/Thread.inl>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system\thread.inl
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system\threadlocal.hpp
+	<SFML/System/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdlib>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system\threadlocalptr.hpp
+	<SFML/System/ThreadLocal.hpp>
+	<SFML/System/ThreadLocalPtr.inl>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system\threadlocalptr.inl
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system\vector2.hpp
+	<SFML/System/Vector2.inl>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system\vector2.inl
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system\vector3.hpp
+	<SFML/System/Vector3.inl>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\system\vector3.inl
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\window\clipboard.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/System/String.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\window\export.hpp
+	<SFML/Config.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\window\context.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/Window/GlResource.hpp>
+	<SFML/Window/ContextSettings.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\window\glresource.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\window\contextsettings.hpp
+	<SFML/Config.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\window\cursor.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Vector2.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\window\event.hpp
+	<SFML/Config.hpp>
+	<SFML/Window/Joystick.hpp>
+	<SFML/Window/Keyboard.hpp>
+	<SFML/Window/Mouse.hpp>
+	<SFML/Window/Sensor.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\window\joystick.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/System/String.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\window\keyboard.hpp
+	<SFML/Window/Export.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\window\mouse.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/System/Vector2.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\window\sensor.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/System/Vector3.hpp>
+	<SFML/System/Time.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\window\touch.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/System/Vector2.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\window\videomode.hpp
+	<SFML/Window/Export.hpp>
+	<vector>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\window\window.hpp
+	<SFML/Window/ContextSettings.hpp>
+	<SFML/Window/GlResource.hpp>
+	<SFML/Window/WindowBase.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\window\windowbase.hpp
+	<SFML/Window/Cursor.hpp>
+	<SFML/Window/Export.hpp>
+	<SFML/Window/VideoMode.hpp>
+	<SFML/Window/Vulkan.hpp>
+	<SFML/Window/WindowHandle.hpp>
+	<SFML/Window/WindowStyle.hpp>
+	<SFML/System/Clock.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/String.hpp>
+	<SFML/System/Vector2.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\window\vulkan.hpp
+	<SFML/Window/Export.hpp>
+	<SFML/Window/WindowHandle.hpp>
+	<vector>
+	<cstddef>
+	<stdint.h>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\window\windowhandle.hpp
+	<SFML/Config.hpp>
+
+1699047563 c:\program files\codeblocks\sfml-2.6.1\include\sfml\window\windowstyle.hpp
+
