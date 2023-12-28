@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="SFML-SWOOSH-Template" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/SFML-SWOOSH-Template" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libFLAC.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libogg.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libopenal32.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-audio.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-audio-d.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-audio-s.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-audio-s-d.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-graphics.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-graphics-d.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-graphics-s.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-graphics-s-d.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-main.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-main-d.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-network.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-network-d.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-network-s.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-network-s-d.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-system-d.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-system-s.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-system-s-d.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-window-d.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-window-s-d.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libvorbis.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libvorbisenc.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libvorbisfile.a" />
+					<Add library="freetype" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/SFML-SWOOSH-Template" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libFLAC.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libogg.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libopenal32.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-audio.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-audio-s.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-graphics.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-graphics-s.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-main.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-network.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-network-s.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-system.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-system-s.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-window.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libsfml-window-s.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libvorbis.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libvorbisenc.a" />
+					<Add library="C:/Program Files/CodeBlocks/SFML-2.6.1/lib/libvorbisfile.a" />
+					<Add library="freetype" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add option="-DSFML_STATIC" />
+			<Add directory="C:/Program Files/CodeBlocks/SFML-2.6.1/include" />
+		</Compiler>
+		<Linker>
+			<Add directory="C:/Program Files/CodeBlocks/SFML-2.6.1/lib" />
+		</Linker>
+		<Unit filename="src/Segues/BlackWashFade.h" />
+		<Unit filename="src/Segues/BlendFadeIn.h" />
+		<Unit filename="src/Segues/BlurFadeIn.h" />
+		<Unit filename="src/Segues/Checkerboard.h" />
+		<Unit filename="src/Segues/CircleClose.h" />
+		<Unit filename="src/Segues/CircleOpen.h" />
+		<Unit filename="src/Segues/CrossZoom.h" />
+		<Unit filename="src/Segues/Cube3D.h" />
+		<Unit filename="src/Segues/DiamondTileCircle.h" />
+		<Unit filename="src/Segues/DiamondTileSwipe.h" />
+		<Unit filename="src/Segues/Dream.h" />
+		<Unit filename="src/Segues/HorizontalOpen.h" />
+		<Unit filename="src/Segues/HorizontalSlice.h" />
+		<Unit filename="src/Segues/Morph.h" />
+		<Unit filename="src/Segues/PageTurn.h" />
+		<Unit filename="src/Segues/PixelateBlackWashFade.h" />
+		<Unit filename="src/Segues/PushIn.h" />
+		<Unit filename="src/Segues/RadialCCW.h" />
+		<Unit filename="src/Segues/RetroBlit.h" />
+		<Unit filename="src/Segues/SlideIn.h" />
+		<Unit filename="src/Segues/SwipeIn.h" />
+		<Unit filename="src/Segues/VerticalOpen.h" />
+		<Unit filename="src/Segues/VerticalSlice.h" />
+		<Unit filename="src/Segues/WhiteWashFade.h" />
+		<Unit filename="src/Segues/ZoomFadeIn.h" />
+		<Unit filename="src/Segues/ZoomFadeInBounce.h" />
+		<Unit filename="src/Segues/ZoomIn.h" />
+		<Unit filename="src/Segues/ZoomOut.h" />
+		<Unit filename="src/Swoosh/ActionList.h" />
+		<Unit filename="src/Swoosh/Activity.h" />
+		<Unit filename="src/Swoosh/ActivityController.h" />
+		<Unit filename="src/Swoosh/Ease.h" />
+		<Unit filename="src/Swoosh/EmbedGLSL.h" />
+		<Unit filename="src/Swoosh/Game.h" />
+		<Unit filename="src/Swoosh/Segue.h" />
+		<Unit filename="src/Swoosh/Shaders.h" />
+		<Unit filename="src/Swoosh/Timer.h" />
+		<Unit filename="src/main.cpp" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
