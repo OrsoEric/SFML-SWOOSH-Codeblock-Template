@@ -465,3 +465,74 @@
 	<algorithm>
 	<cmath>
 
+1704263182 source:d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\main.cpp
+	<iostream>
+	<SFML/window.hpp>
+	<Swoosh/ActivityController.h>
+	<Swoosh/Segue.h>
+	<Segues/ZoomOut.h>
+	"page_mainmenu.hpp"
+	"utils.hpp"
+
+1644024726 d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\swoosh\activitycontroller.h
+	"Activity.h"
+	"Segue.h"
+	"Timer.h"
+	<SFML/Graphics.hpp>
+	<stack>
+	<list>
+	<functional>
+	<utility>
+	<cstddef>
+
+1644024726 d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\swoosh\activity.h
+	<SFML/Graphics.hpp>
+
+1644024726 d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\swoosh\segue.h
+	<SFML/Graphics.hpp>
+	"Timer.h"
+	"Activity.h"
+
+1644024726 d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\swoosh\timer.h
+	<SFML/System.hpp>
+	<map>
+	<vector>
+	<functional>
+
+1704261175 d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\scene.hpp
+	<iostream>
+	<SFML/Graphics.hpp>
+	"Swoosh/Game.h"
+	"gui_button.hpp"
+
+1644024726 d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\swoosh\game.h
+	<SFML/Graphics.hpp>
+	<Swoosh/Ease.h>
+
+1644024726 d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\swoosh\ease.h
+	<algorithm>
+	<cmath>
+
+1704262170 d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\utils.hpp
+	<iostream>
+
+1704262555 d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\gui_button.hpp
+	<SFML/Graphics.hpp>
+	<Swoosh/Game.h>
+	"utils_graphics.hpp"
+
+1644024726 d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\segues\zoomout.h
+	<Swoosh/Segue.h>
+	<Swoosh/Game.h>
+	<Swoosh/Ease.h>
+
+1704263083 d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\page_mainmenu.hpp
+	<iostream>
+	<SFML/Graphics.hpp>
+	"Swoosh/Game.h"
+	"gui_button.hpp"
+	"utils_graphics.hpp"
+
+1704263151 d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\utils_graphics.hpp
+	<SFML/Graphics.hpp>
+

@@ -3,10 +3,14 @@
 #include <SFML/window.hpp>
 
 #include <Swoosh/ActivityController.h>
+#include <Swoosh/Segue.h>
+#include <Segues/ZoomOut.h>
 
 //#include <Segues/ZoomOut.h>
 
-#include "scene.hpp"
+#include "page_mainmenu.hpp"
+
+#include "utils.hpp"
 
 bool init_window( sf::RenderWindow &icl_window )
 {
@@ -32,6 +36,17 @@ bool init_activity_controller( swoosh::ActivityController &icl_activity_controll
     return false;
 }
 
+bool create_texture_triangle( sf::RenderTexture &ircl_render_texture, float if32_size )
+{
+    sf::CircleShape triangle(if32_size/2.0, 3);
+    triangle.setOutlineColor(sf::Color::Red);
+
+    if (!ircl_render_texture.create(if32_size, if32_size))
+        return true;  // error
+    ircl_render_texture.draw(triangle);
+    return false;
+}
+
 int main()
 {
     //Create window
@@ -41,6 +56,12 @@ int main()
         std::cerr << "ERR: Failed to initialize window\n";
         return -1;
     }
+    //Crate a texture for the cursor
+    sf::RenderTexture renderTexture;
+    create_texture_triangle(renderTexture, 30 );
+    //Create cursor
+    sf::Sprite cl_cursor;
+    cl_cursor.setTexture(renderTexture.getTexture());
 
     // Create an ActivityController with the current window as our target to draw to
     swoosh::ActivityController cl_activity_controller(cl_window);
@@ -50,16 +71,9 @@ int main()
         return -1;
     }
 
-    cl_activity_controller.push<Scene>();
-
-    //cl_activity_controller.push<segue<ZoomOut>::to<Scene>>();
-    /*
-    sf::Text s_time_elapsed;
-    s_time_elapsed.setString("0.0");
-    text.setCharacterSize(24); // in pixels, not points!
-    text.setColor(sf::Color::Red);
-    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
-    */
+    //Push the first scene inside the activity controller
+    cl_activity_controller.push<Page_mainmenu>();
+    //cl_activity_controller.push<swoosh::types::segue<ZoomOut>::to<Page_mainmenu>>();
 
     //Timekeeping
     sf::Clock cl_clock;
@@ -73,18 +87,38 @@ int main()
         sf::Event cl_event;
         while (cl_window.pollEvent(cl_event))
         {
+            if (cl_event.type == sf::Event::Resized)
+            {
+                // update the view to the new size of the window
+                sf::FloatRect st_visible_area(0, 0, cl_event.size.width, cl_event.size.height);
+                cl_window.setView(sf::View(st_visible_area));
+                std::cout << "EVENT RESIZE: " << st_visible_area << "\n";
+            }
             // "close requested" cl_event: we close the cl_window
             if (cl_event.type == sf::Event::Closed)
+            {
+                std::cout << "CLOSE: User requested close\n";
                 cl_window.close();
+            }
+
         }
 
         cl_activity_controller.update( f32_elapsed );
+        //If there are no activities on the stack
+        if (cl_activity_controller.getStackSize() <= 0)
+        {
+            std::cout << "CLOSE: No activities left...\n";
+            cl_window.close();
+        }
 
         cl_window.clear();
 
         cl_activity_controller.draw();
 
-        //cl_window.draw(text);
+        sf::Vector2f mousepos = cl_window.mapPixelToCoords(sf::Mouse::getPosition(cl_window));
+        cl_cursor.setPosition(mousepos);
+        // Draw the mouse cursor over everything else
+        cl_window.draw(cl_cursor);
 
         cl_window.display();
 
