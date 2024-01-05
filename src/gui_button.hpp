@@ -240,4 +240,3 @@ private:
     //Text of the button
     std::string gs_text;
 };
-

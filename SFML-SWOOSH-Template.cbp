@@ -214,6 +214,7 @@
 		<Unit filename="src/Swoosh/Timer.h" />
 		<Unit filename="src/asset_manager.hpp" />
 		<Unit filename="src/constants.hpp" />
+		<Unit filename="src/coordinate_generator.hpp" />
 		<Unit filename="src/gui_button.hpp" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/page_mainmenu.hpp" />

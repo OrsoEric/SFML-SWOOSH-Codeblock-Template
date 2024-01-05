@@ -16,6 +16,8 @@
 
 #include "village_simulator.hpp"
 
+#include "coordinate_generator.hpp"
+
 //page_transition.cpp
 //Handles transition to remove include dependencies on pages
 extern bool page_push( swoosh::ActivityController& ircl_activity_controller, std::string is_page_name );
@@ -242,10 +244,52 @@ private:
 	{
 		this->gf32_year = 0.0f;
 
-		this->gcl_village_simulator.set_land( 100, 10, 0, 0 );
+		this->gcl_village_simulator.set_land( Constant::Simulation::cn_land_total, 10, 0, 0 );
+
+
 
 		return false; //OK
 	}
+
+	//Takes care of drawing the village
+	bool draw_village()
+	{
+		//I divide plots in a grid 10x10
+		//I want plots to be drawn consistently
+		//BUilding are drawn spirally from center going out
+
+		//Spiral coordinates
+		//Start from 5.5, 5.5
+		//Fill clockwise
+
+		//First buildings
+		//Then fields
+		//Then undeveloped
+		//Then woods
+
+		//Get village plots
+		Village_simulator::Land st_land = this->gcl_village_simulator.get_land();
+		//Compute integer and fraction of fields
+		int n_builts = st_land.n_built;
+		float n_builts_fraction = st_land.n_built -n_built;
+		int n_fields = st_land.n_built;
+		float n_fields_fraction = st_land.n_field -n_field;
+
+		//Scan the fields
+		for (int n_row = 0;n_row < Constant::Simulation::cn_land_rows;n_row++)
+		{
+			for (int n_col = 0;n_col < Constant::Simulation::cn_land_rows;n_col++)
+			{
+				if (n_builds
+
+			}
+		}
+
+
+
+		return false;
+	}
+
 
 	static const constexpr bool cx_debug_enabled = true;
 	static const constexpr bool cx_debug_tick_enabled = false;
@@ -265,6 +309,8 @@ private:
     Asset_manager gcl_asset_manager;
 	//Handles the number simulation
     Village_simulator gcl_village_simulator;
+	//Generate spiral coordinates for the drawing of the engine
+	Utils::Coordinate_generator gcl_coordinate_generator;
 
     float gf32_year;
 };

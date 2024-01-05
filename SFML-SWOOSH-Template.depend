@@ -551,7 +551,7 @@
 	"Swoosh/Game.h"
 	"gui_button.hpp"
 
-1704377563 source:d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\main.cpp
+1704382217 source:d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\main.cpp
 	<iostream>
 	<SFML/window.hpp>
 	<SFML/Graphics.hpp>
@@ -605,7 +605,7 @@
 	"asset_manager.hpp"
 	"constants.hpp"
 
-1704355932 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\gui_button.hpp
+1704434202 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\gui_button.hpp
 	<SFML/Graphics.hpp>
 	<Swoosh/Game.h>
 	"utils_graphics.hpp"
@@ -634,7 +634,7 @@
 	"page_mainmenu.hpp"
 	"page_village.hpp"
 
-1704361389 source:d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\utils.cpp
+1704435314 source:d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\utils.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 
@@ -642,9 +642,9 @@
 	<iostream>
 	<SFML/Graphics.hpp>
 
-1704382191 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\constants.hpp
+1704435666 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\constants.hpp
 
-1704381839 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\page_village.hpp
+1704436062 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\page_village.hpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"Swoosh/Game.h"
@@ -652,7 +652,11 @@
 	"utils_graphics.hpp"
 	"asset_manager.hpp"
 	"village_simulator.hpp"
+	"coordinate_generator.hpp"
 
 1704381168 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\village_simulator.hpp
 	<iostream>
+
+1704435860 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\coordinate_generator.hpp
+	<SFML/Graphics.hpp>
 

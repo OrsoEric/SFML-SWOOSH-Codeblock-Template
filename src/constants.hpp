@@ -18,6 +18,10 @@ namespace Constant
 	namespace Simulation
 	{
 		static const constexpr float cf32_years_per_second = 0.25;
+
+		static const constexpr float cn_land_rows = 10;
+		static const constexpr float cn_land_cols = 10;
+		static const constexpr float cn_land_total = cn_land_rows *cn_land_cols;
 	};
 
 	namespace Page_main_menu

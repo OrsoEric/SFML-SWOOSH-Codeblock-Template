@@ -2,6 +2,12 @@
 
 #include <SFML/Graphics.hpp>
 
+extern std::ostream& operator<<(std::ostream& os, const sf::FloatRect& rect);
+
+
+template <typename T>
+extern std::ostream& operator<<(std::ostream& os, const sf::Vector2<T>& iraf32);
+
 // Overload the << operator for sf::FloatRect
 std::ostream& operator<<(std::ostream& os, const sf::FloatRect& rect)
 {
