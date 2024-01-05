@@ -212,12 +212,16 @@
 		<Unit filename="src/Swoosh/Segue.h" />
 		<Unit filename="src/Swoosh/Shaders.h" />
 		<Unit filename="src/Swoosh/Timer.h" />
+		<Unit filename="src/asset_manager.hpp" />
+		<Unit filename="src/constants.hpp" />
 		<Unit filename="src/gui_button.hpp" />
 		<Unit filename="src/main.cpp" />
-		<Unit filename="src/page_about.hpp" />
 		<Unit filename="src/page_mainmenu.hpp" />
-		<Unit filename="src/utils.hpp" />
+		<Unit filename="src/page_transition.cpp" />
+		<Unit filename="src/page_village.hpp" />
+		<Unit filename="src/utils.cpp" />
 		<Unit filename="src/utils_graphics.hpp" />
+		<Unit filename="src/village_simulator.hpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

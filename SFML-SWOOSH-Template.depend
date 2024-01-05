@@ -465,7 +465,7 @@
 	<algorithm>
 	<cmath>
 
-1704263182 source:d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\main.cpp
+1704297195 source:d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\main.cpp
 	<iostream>
 	<SFML/window.hpp>
 	<Swoosh/ActivityController.h>
@@ -513,10 +513,10 @@
 	<algorithm>
 	<cmath>
 
-1704262170 d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\utils.hpp
+1704276189 d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\utils.hpp
 	<iostream>
 
-1704262555 d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\gui_button.hpp
+1704296986 d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\gui_button.hpp
 	<SFML/Graphics.hpp>
 	<Swoosh/Game.h>
 	"utils_graphics.hpp"
@@ -526,13 +526,133 @@
 	<Swoosh/Game.h>
 	<Swoosh/Ease.h>
 
-1704263083 d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\page_mainmenu.hpp
+1704298550 d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\page_mainmenu.hpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"Swoosh/Game.h"
 	"gui_button.hpp"
 	"utils_graphics.hpp"
+	"asset_manager.hpp"
+	"page_about.hpp"
+	<Swoosh/Segue.h>
+	"Segues/ZoomOut.h"
 
-1704263151 d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\utils_graphics.hpp
+1704293789 d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\utils_graphics.hpp
 	<SFML/Graphics.hpp>
+
+1704296233 d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\asset_manager.hpp
+	<map>
+	<SFML/Graphics.hpp>
+	"utils.hpp"
+
+1704298541 d:\data\project\project programming\project games\sfml-swoosh-codeblock-template\src\page_about.hpp
+	<iostream>
+	<SFML/Graphics.hpp>
+	"Swoosh/Game.h"
+	"gui_button.hpp"
+
+1704377563 source:d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\main.cpp
+	<iostream>
+	<SFML/window.hpp>
+	<SFML/Graphics.hpp>
+	<Swoosh/ActivityController.h>
+	"constants.hpp"
+
+1644024726 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\swoosh\activitycontroller.h
+	"Activity.h"
+	"Segue.h"
+	"Timer.h"
+	<SFML/Graphics.hpp>
+	<stack>
+	<list>
+	<functional>
+	<utility>
+	<cstddef>
+
+1644024726 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\swoosh\activity.h
+	<SFML/Graphics.hpp>
+
+1644024726 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\swoosh\segue.h
+	<SFML/Graphics.hpp>
+	"Timer.h"
+	"Activity.h"
+
+1644024726 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\swoosh\timer.h
+	<SFML/System.hpp>
+	<map>
+	<vector>
+	<functional>
+
+1644024726 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\segues\zoomout.h
+	<Swoosh/Segue.h>
+	<Swoosh/Game.h>
+	<Swoosh/Ease.h>
+
+1644024726 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\swoosh\game.h
+	<SFML/Graphics.hpp>
+	<Swoosh/Ease.h>
+
+1644024726 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\swoosh\ease.h
+	<algorithm>
+	<cmath>
+
+1704378798 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\page_mainmenu.hpp
+	<iostream>
+	<SFML/Graphics.hpp>
+	"Swoosh/Game.h"
+	"gui_button.hpp"
+	"utils_graphics.hpp"
+	"asset_manager.hpp"
+	"constants.hpp"
+
+1704355932 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\gui_button.hpp
+	<SFML/Graphics.hpp>
+	<Swoosh/Game.h>
+	"utils_graphics.hpp"
+
+1704293789 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\utils_graphics.hpp
+	<SFML/Graphics.hpp>
+
+1704381879 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\asset_manager.hpp
+	<map>
+	<SFML/Graphics.hpp>
+
+1704276189 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\utils.hpp
+	<iostream>
+
+1704360760 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\page_about.hpp
+	<iostream>
+	<SFML/Graphics.hpp>
+	"Swoosh/Game.h"
+	"gui_button.hpp"
+
+1704377315 source:d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\page_transition.cpp
+	<iostream>
+	<Swoosh/ActivityController.h>
+	<Segues/ZoomOut.h>
+	"constants.hpp"
+	"page_mainmenu.hpp"
+	"page_village.hpp"
+
+1704361389 source:d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\utils.cpp
+	<iostream>
+	<SFML/Graphics.hpp>
+
+1704361260 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\utils.h
+	<iostream>
+	<SFML/Graphics.hpp>
+
+1704382191 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\constants.hpp
+
+1704381839 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\page_village.hpp
+	<iostream>
+	<SFML/Graphics.hpp>
+	"Swoosh/Game.h"
+	"gui_button.hpp"
+	"utils_graphics.hpp"
+	"asset_manager.hpp"
+	"village_simulator.hpp"
+
+1704381168 d:\data\project\project programming\project games\2024-01-03-sfml-swoosh-game-choice\src\village_simulator.hpp
+	<iostream>
 

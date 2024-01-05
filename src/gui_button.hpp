@@ -1,3 +1,5 @@
+#pragma once
+
 #include <SFML/Graphics.hpp>
 #include <Swoosh/Game.h>
 
@@ -8,8 +10,10 @@ class Button
 public:
     //Construct a button with a solid color
     Button( sf::Vector2f iaf32_size, sf::Vector2f iaf32_position, sf::Color ie_color ) :
-        gx_clicked(false), gx_hovering(false), gaf32_size(iaf32_size), gaf32_position(iaf32_position), ge_color(ie_color), ge_color_hover(ie_color), ge_color_click(ie_color)
+        gx_hovering(false), gx_click_allowed(false), gx_clicked(false), gaf32_size(iaf32_size), gaf32_position(iaf32_position), ge_color(ie_color), ge_color_hover(ie_color), ge_color_click(ie_color)
     {
+		this->init_vars();
+
 		//Create a rectangle color solid and save it as sprite
 		if (Utils::create_sprite_solid_color( this->gcl_sprite, iaf32_size, ie_color ) == true)
 		{
@@ -22,17 +26,82 @@ public:
         return;
     }
 
-    void update(sf::RenderWindow& window)
+    //Construct an invisible button
+
+	//Hover logic
+	//Click logic: the button must unpressed, to allow registering clicks
+    void update(sf::RenderWindow& window, float f32_elapsed)
     {
-        if (isMouseHovering(*this, window))
-        {
-            gx_hovering = true;
-            gx_clicked = sf::Mouse::isButtonPressed(sf::Mouse::Button::Left);
-        }
-        else
-        {
-            gx_clicked = gx_hovering = false;
-        }
+
+		if (this->gf32_cooldown_timer == 0.0f)
+		{
+			//Do nothing
+		}
+		//Apply the cooldown
+		else if (this->gf32_cooldown_timer > f32_elapsed)
+		{
+			this->gf32_cooldown_timer -= f32_elapsed;
+		}
+		else
+		{
+			std::cout << this->gs_text  << "Cooldown expired, action ready!\n";
+			this->gf32_cooldown_timer = 0.0f;
+		}
+
+		//Actions are in cooldown
+		if (this->gf32_cooldown_timer > 0.0f)
+		{
+			this->gx_hovering = false;
+			this->gx_click_allowed = false;
+			this->gx_clicked = false;
+		}
+		//Mouse is not within the bounds of the button
+		else if (isMouseHovering(*this, window) == false)
+		{
+			this->gx_hovering = false;
+			this->gx_click_allowed = false;
+			this->gx_clicked = false;
+		}
+		//Mouse is within the bounds of the button
+		else
+		{
+			this->gx_hovering = true;
+			//Capture the mouse button
+			bool x_click = sf::Mouse::isButtonPressed(sf::Mouse::Button::Left);
+			//Must first see the button unclicked
+			if ((this->gx_click_allowed == false) && (x_click == false))
+			{
+				this->gx_click_allowed = true;
+				if (this->cx_debug_enabled == true)
+					std::cout << this->gs_text  << " | Armed\n";
+			}
+			//Click already allowed
+			else if ((this->gx_click_allowed == true) && (x_click == false))
+			{
+				//Do nothing
+			}
+			//Button was already pressed before going inside the button
+			else if ((this->gx_click_allowed == false) && (x_click == true))
+			{
+				//Do nothing
+			}
+			//Button was already pressed before going inside the button
+			else if ((this->gx_click_allowed == true) && (x_click == true))
+			{
+				//Trigger the cooldown
+				this->set_cooldown();
+				//Register the click
+				this->gx_clicked = true;
+				//Disallow next click
+				this->gx_click_allowed = false;
+				std::cout << this->gs_text << "Click\n";
+			}
+			//Can never happen
+			else
+			{
+				//Do nothing
+			}
+		}
 
         return;
     }
@@ -101,11 +170,58 @@ public:
     {
         return this->gx_hovering;
     }
+
+    /*
+    //ix_click_enabled true = enable click action
+    bool set_click_enabled( bool ix_click_enabled )
+    {
+		this->gx_click_enabled = ix_click_enabled;
+		return false;
+    }
+    */
+
+    //Trigger the cooldown
+    bool set_cooldown()
+    {
+		if (this->cx_debug_enabled == true)
+			std::cout << this->gs_text << " | Action in cooldown...\n";
+
+		this->gf32_cooldown_timer = this->cf32_cooldown_time;
+		return false;
+    }
 private:
-    //true = mouse has clicked the button
-    bool gx_clicked;
+
+    //TODO: create asset class, that loads sprites and textures in a standard vector
+    //Sprites
+    //std::vector<sf::Sprite> gacl_sprite;
+
+    //Initialize class variables
+    bool init_vars()
+    {
+		this->gf32_cooldown_timer = 0.0f;
+		return false;
+    }
+
+    const bool isMouseHovering(Button& btn, sf::RenderWindow& window)
+    {
+        sf::Sprite& gcl_sprite = btn.gcl_sprite;
+        sf::Vector2i mousei = sf::Mouse::getPosition(window);
+        sf::Vector2f mouse = window.mapPixelToCoords(mousei);
+        sf::FloatRect bounds = gcl_sprite.getGlobalBounds();
+
+        return (mouse.x >= bounds.left && mouse.x <= bounds.left + bounds.width && mouse.y >= bounds.top && mouse.y <= bounds.top + bounds.height);
+    }
+
+    static const constexpr bool cx_debug_enabled = true;
     //true = mouse is hovering over the button
     bool gx_hovering;
+    //true = mouse has clicked the button
+    bool gx_click_allowed;
+    bool gx_clicked;
+    //Cooldown must be expired to allow actions to occour
+    float gf32_cooldown_timer;
+    //Default cooldown in seconds to allow actions to occour
+    static const constexpr float cf32_cooldown_time = 0.2f;
     //Size of the button in pixels
     sf::Vector2f gaf32_size;
     //Position of the button on the screen
@@ -123,20 +239,5 @@ private:
     sf::Text *gpcl_text;
     //Text of the button
     std::string gs_text;
-
-    //TODO: create asset class, that loads sprites and textures in a standard vector
-    //Sprites
-    //std::vector<sf::Sprite> gacl_sprite;
-
-    const bool isMouseHovering(Button& btn, sf::RenderWindow& window)
-    {
-        sf::Sprite& gcl_sprite = btn.gcl_sprite;
-        sf::Vector2i mousei = sf::Mouse::getPosition(window);
-        sf::Vector2f mouse = window.mapPixelToCoords(mousei);
-        sf::FloatRect bounds = gcl_sprite.getGlobalBounds();
-
-        return (mouse.x >= bounds.left && mouse.x <= bounds.left + bounds.width && mouse.y >= bounds.top && mouse.y <= bounds.top + bounds.height);
-    }
 };
-
 

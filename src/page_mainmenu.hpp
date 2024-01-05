@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 
 #include <SFML/Graphics.hpp>
@@ -7,6 +9,14 @@
 #include "gui_button.hpp"
 
 #include "utils_graphics.hpp"
+
+#include "asset_manager.hpp"
+
+#include "constants.hpp"
+
+//page_transition.cpp
+//Handles transition to remove include dependencies on pages
+extern bool page_push( swoosh::ActivityController& ircl_activity_controller, std::string is_page_name );
 
 class Page_mainmenu : public swoosh::Activity
 {
@@ -23,12 +33,18 @@ public:
             std::cerr << "ERR: failed to load assets...";
         }
 
+        //Create the START Button
+        Button cl_gui_button_start( sf::Vector2f(100, 50), sf::Vector2f(400, 200), sf::Color::White );
+        cl_gui_button_start.set_text( this->gs_text_default, this->cs_button_text_village );
+        cl_gui_button_start.set_color_hover(sf::Color::Green);
+        cl_gui_button_start.set_color_click(sf::Color::Blue);
+		this->gacl_button.push_back(cl_gui_button_start);
+
         // Create the EXIT button
-        Button cl_gui_button_exit( sf::Vector2f(100, 100), sf::Vector2f(400, 300), sf::Color::White );
+        Button cl_gui_button_exit( sf::Vector2f(100, 50), sf::Vector2f(400, 300), sf::Color::White );
         cl_gui_button_exit.set_text( this->gs_text_default, this->cs_button_text_exit );
         cl_gui_button_exit.set_color_hover(sf::Color::Green);
         cl_gui_button_exit.set_color_click(sf::Color::Blue);
-
         this->gacl_button.push_back(cl_gui_button_exit);
         return;
     }
@@ -42,41 +58,73 @@ public:
         return;
     }
 
-    void onStart() override
+	//Triggered when:
+    //- Activity is pushed inside the Activity_controller
+	void onStart() override
     {
-        std::cout << "OnStart called" << std::endl;
+        if (this->cx_debug_enabled == true)
+			std::cout << "Page: Main Menu | onStart called" << std::endl;
+
+		this->trigger_gui_cooldowns();
         return;
     }
 
-    void onLeave() override
+	//Triggered when:
+	//- Activity is popped from Activity_controller
+	void onEnd() override
     {
-        std::cout << "OnLeave called" << std::endl;
-        gx_focus = false;
+		if (this->cx_debug_enabled == true)
+			std::cout << "page Main Menu | OnEnd called" << std::endl;
+        return;
     }
 
-    void onExit() override
+    //Triggered when:
+    //- another Activity is pushed inside the activity controller, pushing this activity down the priority
+    void onLeave() override
     {
-        std::cout << "OnExit called" << std::endl;
+        if (this->cx_debug_enabled == true)
+			std::cout << "Page: Main Menu | onLeave called" << std::endl;
+        gx_focus = false;
+        return;
+    }
+
+	//Triggered when:
+    //- Activity resumes after onLeave, e.g. when the activity that pushed this activity down was popped, making this the highest priority activity again
+    void onResume() override
+    {
+		if (this->cx_debug_enabled == true)
+			std::cout << "Page: Main Menu | onResume called" << std::endl;
+		this->trigger_gui_cooldowns();
+        gx_focus = true;
+        return;
     }
 
     void onEnter() override
     {
-        std::cout << "OnEnter called" << std::endl;
-
+        if (this->cx_debug_enabled == true)
+			std::cout << "Page: Main Menu | onEnter called" << std::endl;
+		this->trigger_gui_cooldowns();
+		return;
     }
 
-    void onResume() override
+    void onExit() override
     {
-        std::cout << "OnLeave called" << std::endl;
-        gx_focus = true;
+        if (this->cx_debug_enabled == true)
+			std::cout << "Page: Main Menu | onExit called" << std::endl;
+		return;
     }
 
-    void onUpdate(double f64_elapsed) override
+    //Triggered when:
+    //- Activity controller update method is called in the main loop
+    void onUpdate(double if64_elapsed) override
     {
-        std::cout << "onUpdate called: " << f64_elapsed << std::endl;
+		if (this->cx_debug_tick_enabled == true)
+			std::cout << "Page: Main Menu | onUpdate called: " << if64_elapsed << std::endl;
+
+		//For buttons
         for (auto& cl_gui_button : gacl_button)
         {
-            cl_gui_button.update(getController().getWindow());
+            cl_gui_button.update(getController().getWindow(), if64_elapsed);
             //If this button has been clicked
             if (cl_gui_button.is_clicked())
             {
@@ -86,63 +134,27 @@ public:
                     //Pop this scene
                     this->getController().pop();
                 }
-            }
-
-            /*
-            if (b.isClicked && inFocus)
-            {
-                selectFX.play();
-
-                if (b.text == PLAY_OPTION)
+                else if (this->cs_button_text_village == cl_gui_button.get_text())
                 {
-                    getController().push<segue<DreamCustom<50>, sec<3>>::to<GameplayPage_mainmenu>>(savefile);
-                    fadeMusic = true;
-                }
-                else if (b.text == SCORE_OPTION)
-                {
-                    using segue = segue<BlurFadeIn, sec<2>>;
-                    using intent = segue::to<HiScorePage_mainmenu>;
-
-                    getController().push<intent>(savefile);
-                }
-                else if (b.text == ABOUT_OPTION)
-                {
-                    getController().push<segue<VerticalSlice, sec<2>>::to<AboutPage_mainmenu>>();
+                    if (page_push( this->getController(), Constant::cs_page_village ) == true)
+					{
+						std::cerr << "ERR: " << __LINE__ << "ERR: Unable to push page...\n";
+					}
                 }
             }
-            */
-        }
+        }	//For buttons
 
         return;
     }
 
+    //Triggered when:
+    //- Activity controller draw method is called in the main loop
     void onDraw(sf::RenderTexture& icl_surface) override
     {
-        /*
-        // Get the current size of the window
-        sf::Vector2u an_texture_size = icl_surface.getSize();
+		if (this->cx_debug_tick_enabled == true)
+			std::cout << "Page: Main Menu | onUpdate called" << std::endl;
 
-        // Get the size of the sprite
-        sf::Vector2u spriteSize = gcl_sprite_background.getTexture()->getSize();
-
-        // Calculate the scale factors
-        float scaleX = static_cast<float>(an_texture_size.x) / spriteSize.x;
-        float scaleY = static_cast<float>(an_texture_size.y) / spriteSize.y;
-
-
-        // Set the scale of the sprite
-        gcl_sprite_background.setScale(scaleX, scaleY);
-        std::cout << "onDraw called, window size: " << an_texture_size.x << " | " << an_texture_size.y << std::endl;
-        */
-        //sf::RenderWindow& window = getController().getWindow();
-
-        icl_surface.draw(gcl_sprite_background);
-
-        /*
-        swoosh::game::setOrigin( this->gs_text_default, 0.5, 0.5 );
-        this->gs_text_default.setPosition(sf::Vector2f(100, 100));
-        icl_surface.draw(this->gs_text_default);
-        */
+        this->gcl_asset_manager.draw_asset( icl_surface, Constant::Page_main_menu::cs_resource_background );
 
         for (auto& cl_gui_button : gacl_button)
         {
@@ -152,19 +164,22 @@ public:
         return;
     }
 
-    void onEnd() override
-    {
-        std::cout << "OnEnd called" << std::endl;
-        return;
-    }
-
 protected:
 
 private:
 
+	bool trigger_gui_cooldowns()
+	{
+		for (auto& cl_gui_button : gacl_button)
+        {
+            cl_gui_button.set_cooldown();
+        }
+		return false;
+	}
+
     bool load_text( sf::Text &irs_text )
     {
-        if (!this->gcl_font.loadFromFile("resources/manual.ttf")) // Check if the font is loaded correctly
+        if (!this->gcl_font.loadFromFile(Constant::cs_font)) // Check if the font is loaded correctly
         {
             std::cerr << "ERR: Failed to load font\n";
             return true; // Return true if the font failed to load
@@ -186,7 +201,7 @@ private:
     bool load_assets( void )
     {
 		bool x_ret = false;
-		x_ret |= Utils::create_sprite_from_file(this->gcl_sprite_background, "resources/black_rose_800_600.jpg");
+		x_ret |= this->gcl_asset_manager.load_from_file( Constant::Page_main_menu::cs_resource_background );
 
         x_ret |= load_text(this->gs_text_default);
 
@@ -198,6 +213,10 @@ private:
 		return false;
 	}
 
+	static const constexpr bool cx_debug_enabled = true;
+	static const constexpr bool cx_debug_tick_enabled = false;
+
+    static const constexpr char *cs_button_text_village = "Village";
     static const constexpr char *cs_button_text_exit = "Exit";
 
     sf::Font gcl_font;
@@ -205,11 +224,13 @@ private:
     sf::Text gs_text_default;
 
     //Texture and sprite for the background
-    sf::Sprite gcl_sprite_background;
+    //sf::Texture gcl_texture_background;
+    //sf::Sprite gcl_sprite_background;
 
     //Buttons inside the scene
     std::vector<Button> gacl_button;
 
     bool gx_focus;
-
+	//Handle loading of image files
+    Asset_manager gcl_asset_manager;
 };

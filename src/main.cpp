@@ -1,23 +1,30 @@
 #include <iostream>
 
 #include <SFML/window.hpp>
+#include <SFML/Graphics.hpp>
 
 #include <Swoosh/ActivityController.h>
-#include <Swoosh/Segue.h>
-#include <Segues/ZoomOut.h>
 
-//#include <Segues/ZoomOut.h>
+#include "constants.hpp"
 
-#include "page_mainmenu.hpp"
+//TODO:
+//I can make a GUI class from the asset manager
+//The core is handle text, image, clicks and name of controls
 
-#include "utils.hpp"
+
+//utils.cpp
+std::ostream& operator<<(std::ostream& os, const sf::FloatRect& rect);
+
+//page_transition.cpp
+//Handles transition to remove include dependencies on pages
+extern bool page_push( swoosh::ActivityController& ircl_activity_controller, std::string is_page_name );
 
 bool init_window( sf::RenderWindow &icl_window )
 {
     if (icl_window.isOpen())
         return false; // Return false if the window is already initialized
 
-    icl_window.create(sf::VideoMode(800, 600), "My Window");
+    icl_window.create(sf::VideoMode(Constant::Window::cn_width, Constant::Window::cn_height), "My Window");
 
     if (!icl_window.isOpen())
         return true; // Return true if the window failed to open
@@ -71,9 +78,11 @@ int main()
         return -1;
     }
 
-    //Push the first scene inside the activity controller
-    cl_activity_controller.push<Page_mainmenu>();
-    //cl_activity_controller.push<swoosh::types::segue<ZoomOut>::to<Page_mainmenu>>();
+    if (page_push( cl_activity_controller, Constant::cs_page_main_menu ) == true)
+    {
+		std::cerr << "ERR: " << __LINE__  << " | Unable to push page...\n";
+		return -1;
+    }
 
     //Timekeeping
     sf::Clock cl_clock;
@@ -100,7 +109,6 @@ int main()
                 std::cout << "CLOSE: User requested close\n";
                 cl_window.close();
             }
-
         }
 
         cl_activity_controller.update( f32_elapsed );
@@ -117,6 +125,7 @@ int main()
 
         sf::Vector2f mousepos = cl_window.mapPixelToCoords(sf::Mouse::getPosition(cl_window));
         cl_cursor.setPosition(mousepos);
+
         // Draw the mouse cursor over everything else
         cl_window.draw(cl_cursor);
 

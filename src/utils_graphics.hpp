@@ -1,8 +1,9 @@
+#pragma once
+
 #ifndef _UTILS_GRAPHICS_HPP
 	#define _UTILS_GRAPHICS_HPP
 
 #include <SFML/Graphics.hpp>
-
 
 namespace Utils
 {
@@ -24,20 +25,21 @@ namespace Utils
 	}
 
 	//Create a sprite by loading an image from file
-	bool create_sprite_from_file( sf::Sprite &orcl_sprite, const std::string& path )
+	bool create_sprite_from_file( sf::Texture &orcl_texture, sf::Sprite &orcl_sprite, const std::string& path )
 	{
-		sf::Texture cl_texture;
-        if (cl_texture.loadFromFile(path) == false)
+        if (orcl_texture.loadFromFile(path) == false)
         {
             std::cerr << "ERR: loading texture: " << path << "\n";
-            return true;
+            return true; //FAIL
         }
 
-		orcl_sprite.setTexture(cl_texture);
+		orcl_sprite.setTexture(orcl_texture);
 
 		return false; //SUCCESS
 	}
 
 }; //Utils
 
+#else
+	#error "Multiple Inclusions of _UTILS_GRAPHICS_HPP"
 #endif
